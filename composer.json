@@ -1,0 +1,35 @@
+{
+    "name": "gauss-allianz/shibboleth-authentication-bundle",
+    "description": "Bundle for Shibboleth authentication in Symfony for Service Provider (SP) applications.",
+    "keywords": ["shibboleth", "authentication", "symfony","symfony 6", "gauss-allianz", "gauss","allianz"],
+    "license": "Apache License 2.0",
+    "type": "symfony-bundle",
+    "version": "3.0.0",
+    "authors": [
+        {
+            "name": "Gerd Rönsch",
+            "email": "gerd.roensch@tu-dresden.de"
+        },
+        {
+            "name": "Jens Lukaschkowitz",
+            "email": "jens.lukaschkowitz@tu-dresden.de"
+        }
+    ],
+    "require": {
+        "php": ">8.2",
+        "ext-xml": "*",
+        "symfony/security-bundle": "^6",
+        "symfony/routing": "^6"
+    },
+    "suggest": {
+        "psr/log": "^1|^2|^3",
+        "symfony/translation": "^6"
+    },
+    "conflict": {
+    },
+    "autoload": {
+	    "psr-4": {
+            "GaussAllianz\\ShibbolethAuthenticationBundle\\": "src/"
+        }
+    }
+}
