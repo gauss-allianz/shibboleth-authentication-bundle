@@ -24,7 +24,7 @@ class ShibbolethAuthenticationBundle extends AbstractBundle
     {
        $definition->rootNode()
            ->children()
-                ->scalarNode('logout_route')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('logout_route')->isRequired()->cannotBeEmpty()->defaultValue('/logout')->end()
                 ->scalarNode('handler_path')->defaultValue('/Shibboleth.sso')->end()
                 ->scalarNode('session_initiator_path')->defaultValue('/Login')->end()
                 ->scalarNode('username_attribute')->isRequired()->cannotBeEmpty()->end()

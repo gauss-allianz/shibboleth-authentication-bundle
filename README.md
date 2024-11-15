@@ -36,7 +36,7 @@ https://github.com/roenschg/ShibbolethBundle.
     ```
     shibboleth_authentication:
        username_attribute: "%shibboleth_username_attribute%"    # required, the Shibboleth user name attribute 
-       logout_route: '_logout_main'                             # required, the name of the logout route, depends your firewall configuration
+       logout_route: '_logout_main'                             # required, the name of the logout route, depends your firewall configuration, defaults to '/logout'
        session_key: "%shibboleth_session_key%                   # (optional), name of the environment variable holding the Shibboleth session, defaults to 'Shib-Session-ID'
        redirect_target: '%env(resolve:LOGIN_REDIRECT_TARGET)%'  # (optional), target where to redirect after successful authentication, defaults to null
        attribute_definitions:                                   # (optional), mapping table from Shibboleth attributes to user attributes  
