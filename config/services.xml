@@ -10,8 +10,9 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <!-- Shibboleth Authentication Service -->
         <service id="shibboleth_authentication" class="GaussAllianz\ShibbolethAuthenticationBundle\Security\Authenticator\ShibbolethAuthenticator">
-            <argument type="service" id="shibboleth_authentication.user_provider" on-invalid="exception" />
+            <argument type="service" id="shibboleth_authentication.user_provider" on-invalid="null" />
             <argument type="service" id="Symfony\Component\Routing\RouterInterface" on-invalid="exception" />
             <argument type="service" id="logger" on-invalid="null" />
             <argument type="service" id="Symfony\Contracts\Translation\TranslatorInterface" on-invalid="null" />
@@ -25,11 +26,15 @@
             <argument type="service" id="Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface" on-invalid="null" />
             <argument type="service" id="Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface" on-invalid="null" />
         </service>
+
+        <!-- Shibboleth Authentication Entry Point -->
         <service id="shibboleth_authentication.entrypoint" class="GaussAllianz\ShibbolethAuthenticationBundle\Security\EntryPoint\ShibbolethAuthenticationEntryPoint">
             <argument type="service" id="shibboleth_authentication" on-invalid="exception" />
             <argument type="service" id="logger" on-invalid="null" />
             <argument type="string" on-invalid="null" /> <!-- redirect target after triggering the entry point -->
         </service>
+
+        <!-- Shibboleth Logout Event Listener -->
         <service id="shibboleth_authentication.logout_listener" class="GaussAllianz\ShibbolethAuthenticationBundle\Security\EventListener\ShibbolethLogoutListener">
             <tag name="kernel.event_listener" event="Symfony\Component\Security\Http\Event\LogoutEvent" method="onSecurityLogout" />
             <argument type="service" id="shibboleth_authentication" on-invalid="exception" />
