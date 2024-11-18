@@ -2,7 +2,7 @@
     "name": "gauss-allianz/shibboleth-authentication-bundle",
     "description": "Bundle for Shibboleth authentication in Symfony for Service Provider (SP) applications.",
     "keywords": ["shibboleth", "authentication", "symfony","symfony 6", "gauss-allianz", "gauss","allianz"],
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
     "type": "symfony-bundle",
     "version": "3.0.1",
     "authors": [
