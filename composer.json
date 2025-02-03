@@ -4,7 +4,7 @@
     "keywords": ["shibboleth", "authentication", "symfony","symfony 6", "gauss-allianz", "gauss","allianz"],
     "license": "Apache-2.0",
     "type": "symfony-bundle",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "authors": [
         {
             "name": "Gerd Rönsch",

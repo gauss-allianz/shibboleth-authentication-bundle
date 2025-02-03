@@ -309,7 +309,7 @@ class ShibbolethAuthenticator extends AbstractAuthenticator
         // get all required attributes and deliver them with the credentials
         foreach ($this->attributeDefinitions as $attributeDefinition => $alias) {
             $attributeValue = $this->getAttribute($request, $attributeDefinition);
-            if (null === $attributeValue) {
+            if (empty($attributeValue)) {
                 throw new ShibbolethCredentialsNotGivenException(
                     sprintf(
                          'Required shibboleth attribute %s is not provided by your IdP %s.',
