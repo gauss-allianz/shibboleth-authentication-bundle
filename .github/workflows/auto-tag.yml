@@ -1,0 +1,47 @@
+name: Auto Tag from composer.json
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - composer.json
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Install jq to parse composer.json
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      # Extract version from composer.json
+      - name: Get version from composer.json
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' composer.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      # Check if the tag already exists
+      - name: Check if tag exists
+        id: check_tag_exists
+        run: |
+          if git rev-parse "v${{ env.VERSION }}" >/dev/null 2>&1; then
+            echo "Tag v${{ env.VERSION }} already exists."
+            exit 0
+          fi
+
+      # Create a new tag and push it
+      - name: Create and push tag
+        env:
+          VERSION: ${{ env.VERSION }}
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag -a "v${VERSION}" -m "Release version v${VERSION}"
+          git push origin "v${VERSION}"
