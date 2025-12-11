@@ -3,7 +3,7 @@
 ## Introduction
 Shibboleth is a Single-Sign-On system made for web services. For more information about Shibboleth see https://www.shibboleth.net/. 
 
-This bundle provides a authenticator to use the authentication mechanism of Symfony 5.3+. If your legacy application relies on the guard authentication mechanism see the following repositories for more information.
+This bundle provides an authenticator to use the authentication mechanism of Symfony 5.3+. If your legacy application relies on the guard authentication mechanism, see the following repositories for more information.
 - Symfony Version 4.2 you should see
 https://gitlab.com/kury/ShibbolethGuardBundle/tree/symfony4 (other branch).
 - Symfony Version 3.4 you should see
@@ -65,7 +65,7 @@ https://github.com/roenschg/ShibbolethBundle.
              entry_point: shibboleth_authentication.entrypoint
     ```
 
-## How to test Shibboleth authentication locally in development environment
+## How to test Shibboleth authentication locally in your development environment
 ### Service Provider for dev environment 
     1. Register your (test) Service Provider within your AAI/at your Identity Provider
     2. Configure your web server to use Shibboleth authentication
@@ -73,10 +73,10 @@ https://github.com/roenschg/ShibbolethBundle.
     4. Create certificates for your domain (and configure it in the web server) and the shibboleth communication
     5. (Add entry for your SP domain in your '/etc/hosts' (Linux)) 
 
-Setting up a local IdP/SP (test) infrastructure can therefore be a very time-consuming job, but you can test and debug the interaction with your identity provider. For more information about the Shibboleth configuration see Shibboleth Service provider documentation https://shibboleth.atlassian.net/wiki/spaces/SP3/overview.  
+Setting up a local IdP/SP (test) infrastructure can therefore be a very time-consuming job, but you can test and debug the interaction with your identity provider. For more information about the Shibboleth configuration, see Shibboleth Service provider documentation https://shibboleth.atlassian.net/wiki/spaces/SP3/overview.  
 
 ### Simulate shibboleth authentication within your web server
-An easier way to test your functionality on your local system is to simulate the shibboleth authentication. If you know which information are usually sent from your identity provider to the Shibboleth daemon then you can use Apaches `Setenv` directive or Nginx `fastcgi_param` to adopt this.
+An easier way to test your functionality on your local system is to simulate the shibboleth authentication. If you know which information is usually sent from your identity provider to the Shibboleth daemon, then you can use Apaches `Setenv` directive or Nginx `fastcgi_param` to adopt this.
 
 ```
   location ~ \.php(/|$) {

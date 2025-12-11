@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright (c) 2024 Gauß-Allianz e. V.
+ * Copyright (c) 2025 Gauß-Allianz e. V.
  */
 
 /**
@@ -53,12 +53,11 @@ class ShibbolethAuthenticationBundle extends AbstractBundle
     }
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        $container->import('../config/services.xml');
+        // Use PHP service configuration (XML is deprecated since Symfony 7.4)
+        $container->import('../config/services.php');
 
         $container->services()
             ->get('shibboleth_authentication')
-            ->autowire(true)
-            ->autoconfigure(true)
             ->arg('$logoutRoute', $config['logout_route'])
             ->arg('$handlerPath', $config['handler_path'])
             ->arg('$sessionInitiatorPath', $config['session_initiator_path'])
@@ -81,9 +80,7 @@ class ShibbolethAuthenticationBundle extends AbstractBundle
         }
 
         $container->services()
-            ->get('shibboleth_authentication.entrypoint')
-            ->autowire(true)
-            ->autoconfigure(true);
+            ->get('shibboleth_authentication.entrypoint');
 
         if (isset($config['entry_point']['redirect_target'])) {
             $container->services()
