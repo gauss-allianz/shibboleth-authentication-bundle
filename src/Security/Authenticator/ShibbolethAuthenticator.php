@@ -228,7 +228,7 @@ class ShibbolethAuthenticator extends AbstractAuthenticator
      *
      * @return string           The absolute URL to initiate a session
      */
-    public function getLoginUrl(Request $request, string $targetUrl = null): string
+    public function getLoginUrl(Request $request, ?string $targetUrl = null): string
     {
         // convert to absolute URL if not yet absolute.
         if (empty($targetUrl)) {
