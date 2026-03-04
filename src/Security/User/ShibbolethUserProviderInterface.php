@@ -28,7 +28,7 @@ interface ShibbolethUserProviderInterface extends UserProviderInterface
     public function createUser(array $credentials): UserInterface;
 
     /**
-     * Updates user object based on the given credentials.
+     * Updates the user object based on the given credentials.
      *
      * It is up to the implementation to how to update the user data
      * and if the data should be persisted.

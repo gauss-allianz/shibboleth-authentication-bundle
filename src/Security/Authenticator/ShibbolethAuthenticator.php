@@ -220,7 +220,7 @@ class ShibbolethAuthenticator extends AbstractAuthenticator
     }
 
     /**
-     * Returns URL to initiate login session. After successfully login, the user will be redirected
+     * Returns URL to initiate login session. After successful login, the user will be redirected
      * to the optional target page. The target can be an absolute or relative URL.
      *
      * @param Request     $request
@@ -323,7 +323,7 @@ class ShibbolethAuthenticator extends AbstractAuthenticator
 
         $usernameAttribute = $credentials[$this->attributeDefinitions[$this->usernameAttribute]];
         $lengthOfUsername = strlen($usernameAttribute);
-        // If the username is empty or larger than the internal security limit throw an exception
+        // If the username is empty or larger than the internal security limit, throw an exception
         if ($lengthOfUsername < 1 || $lengthOfUsername > UserBadge::MAX_USERNAME_LENGTH) {
             throw new BadCredentialsException(sprintf("Invalid username provided by attribute %s.", $this->usernameAttribute));
         }

@@ -19,7 +19,7 @@ return static function (ContainerConfigurator $configurator): void {
         ->set('shibboleth_authentication', ShibbolethAuthenticator::class)
         ->autowire(true)
         ->autoconfigure(true)
-        // Preserve XML on-invalid behavior for constructor service args
+        // Preserve XML on-invalid behaviour for constructor service args
         ->arg('$userProvider', service('shibboleth_authentication.user_provider')->nullOnInvalid())
         ->arg('$router', service(RouterInterface::class)) // exception if missing (matches XML)
         ->arg('$logger', service('logger')->nullOnInvalid())

@@ -4,7 +4,7 @@
     "keywords": ["shibboleth", "authentication", "symfony", "gauss-allianz", "gauss","allianz"],
     "license": "Apache-2.0",
     "type": "symfony-bundle",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "authors": [
         {
             "name": "Gerd Rönsch",
@@ -19,7 +19,8 @@
         "php": ">=8.2",
         "ext-xml": "*",
         "symfony/security-bundle": "^6|^7",
-        "symfony/routing": "^6|^7"
+        "symfony/routing": "^6|^7",
+        "symfony/translation-contracts": "^3.0"
     },
     "suggest": {
         "psr/log": "^1|^2|^3",
