@@ -246,7 +246,7 @@ class ShibbolethAuthenticator extends AbstractAuthenticator
      *
      * @return string
      */
-    public function getLogoutUrl(Request $request, $return = null): string
+    public function getLogoutUrl(Request $request, ?string $return = null): string
     {
         $logoutRedirect = $this->getAttribute($request, 'logoutURL');
         if (!empty($logoutRedirect)) {
